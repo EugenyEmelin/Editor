@@ -63,8 +63,8 @@ class TextItem extends Item {
 	}
 }
 // <---------------------------->
-const container = document.querySelector('.container-editor')
-const photoInput = document.querySelector('#photo-input')
+let container = document.getElementById('container-editor')
+let photoInput = document.getElementById('photo-input')
 
 document.querySelector('#add-item').addEventListener('click', (e) => {
 	e.preventDefault()
@@ -77,6 +77,7 @@ document.querySelector('#add-photo').addEventListener('click', (e) => {
 		for (let i = 0; i < photoInput.files.length; i++) {
 			new ImageItem('item', container, photoInput.files[i])
 		}
+		photoInput.value = ''
 	}
 })
 document.querySelector('#add-text').addEventListener('click', (e) => {
@@ -86,6 +87,7 @@ document.querySelector('#add-text').addEventListener('click', (e) => {
 document.querySelector('#color-set').addEventListener('click', (e) => {
 	document.querySelector('#color-set').onchange = () => {
 		container.style.backgroundColor = e.target.value
+
 	}
 })
 document.querySelector('#save').addEventListener('click', (e) => {
